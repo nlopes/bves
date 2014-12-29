@@ -1,11 +1,11 @@
 This is the source code repository for bves.
 
-bves is a command line utility to interface with Virtualbox.es boxes
+bves is a command line utility to interface with Vagrantbox.es boxes
 
 ## Usage
     usage: bves [<flags>] <command> [<flags>] [<args> ...]
 
-    A cmdline interface to virtualbox.es.
+    A cmdline interface to vagrantbox.es.
 
     Flags:
       --help             Show help.

@@ -20,12 +20,12 @@ const (
 	Version      = "0.1.0"
 	Author       = "Norberto Lopes <nlopes.ml+bves __at__ gmail.com>"
 
-	VirtualBoxESUrl = "http://www.vagrantbox.es"
+	VagrantBoxESUrl = "http://www.vagrantbox.es"
 	CacheDuration   = 24 // hours
 )
 
 var (
-	app     = kingpin.New(Name, "A cmdline interface to virtualbox.es.")
+	app     = kingpin.New(Name, "A cmdline interface to vagrantbox.es.")
 	debug   = app.Flag("debug", "Enable debug mode.").Short('d').Bool()
 	timeout = app.Flag("timeout", "Timeout for download.").Default("10s").Short('t').Duration()
 
@@ -61,7 +61,7 @@ func download(url string) (body []byte, err error) {
 }
 
 func download_vms_details() (vms_details []VBNode, err error) {
-	body, err := download(VirtualBoxESUrl)
+	body, err := download(VagrantBoxESUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -109,7 +109,7 @@ func get_cached_file() (fh *os.File) {
 	}
 	if re_download {
 		if *debug {
-			log.Printf("Re-downloading list from %s.\n", VirtualBoxESUrl)
+			log.Printf("Re-downloading list from %s.\n", VagrantBoxESUrl)
 		}
 		save_file(temp_file_fullpath)
 	}
